@@ -131,6 +131,20 @@ app.post('/users/create', function(req,res){
     })
 });
 
+  app.post('/quest/create', middleware.requireAuthentication, function(req, res){
+        models.Quest.create({
+            title: req.body.title,
+            description: req.body.description,
+            active: false
+        }).then(function(quest){
+        req.user.addQuest(quest).then(function(success){
+        res.json(quest);
+      }).catch(function(err){
+        throw err;
+      });
+    })
+});
+
 app.put('/dream/delete/:id', middleware.requireAuthentication, function(req, res){
   models.User.findOne({where: {id: req.user.get('id')}}).then(function(){
     models.Dream.update(

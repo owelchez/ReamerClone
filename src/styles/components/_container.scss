@@ -33,5 +33,9 @@
 }
 
 body {
-	background-image: url('http://www.hutui6.com/data/out/60/66982318-dream-wallpapers.jpg');	
+  background: url("http://www.hutui6.com/data/out/60/66982318-dream-wallpapers.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
